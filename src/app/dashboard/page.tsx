@@ -6,6 +6,9 @@ import { faWallet } from '@fortawesome/free-solid-svg-icons'
 import ExpenseCards from './components/expensecards'
 import Category from './components/category'
 import ExpenseCalender from './components/calender'
+import { faBasketShopping, faHouse, faCamera, faTruck, faGift, faMobileAndroid } from '@fortawesome/free-solid-svg-icons'
+import BarChart from './components/barchart'
+import PieChart from './components/piechart'
 
 
 const Dashboard = () => {
@@ -23,15 +26,17 @@ const Dashboard = () => {
                     <p className=' text-sky-400 text-2xl font-semibold'>Home Wallet</p>
                     <p className='text-gray-500 text-xs'>change default wallet</p>
                 </div>
-                <div className=''></div>
+                <div className=''>
+                  
+                </div>
               </div>
 
               <div className='flex'>
                   <div className='bg-[#ffffff] h-[365px] w-[700px] ml-6 px-2 sm:px-6 lg:px-8 rounded-l-lg shadow-md'>
-
+                      <BarChart/>
                   </div>
                   <div className='bg-[#ffffff] h-[365px] w-[405px] ml-0.5 px-2 sm:px-6 lg:px-8 rounded-r-lg shadow-md'>
-                    
+                      <PieChart/>
                   </div>         
               </div>
 
@@ -40,13 +45,13 @@ const Dashboard = () => {
               </div>
 
               <div className='flex gap-3'>
-                <ExpenseCards/>
-                <ExpenseCards/>
-                <ExpenseCards/>
-                <ExpenseCards/>
-                <ExpenseCards/>
-                <ExpenseCards/>
-                <ExpenseCards/>
+                <ExpenseCards icon={faBasketShopping} iconColor='text-red-500' title='Shopping Cost' amount={1000}/>
+                <ExpenseCards icon={faHouse} iconColor='text-yellow-500' title='Household' amount={6000}/>
+                <ExpenseCards icon={faTruck} iconColor='text-gray-500' title='Transport' amount={1000}/>
+                <ExpenseCards icon={faCamera} iconColor='text-green-500' title='Canon Camera' amount={3500}/>
+                <ExpenseCards icon={faGift} iconColor='text-black-500' title='Shopping Cost' amount={1000}/>
+                <ExpenseCards icon={faGift} iconColor='text-rose-500' title='Gifts' amount={1000}/>
+                <ExpenseCards icon={faMobileAndroid} iconColor='text-blue-300' title='Recharge Bills' amount={1000} iconSize='w-10 h-10'/>
               </div>
           </div>
           <div className='bg-[#F8F8F8] h-[735px] w-[400px] rounded-r-2xl shadow-xl relative'>

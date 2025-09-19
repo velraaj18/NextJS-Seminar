@@ -21,3 +21,5 @@ npm i --save @fortawesome/fontawesome-svg-core
 -- Calender
 npm install react-calendar
 
+-- Charts
+npm install chart.js react-chartjs-2

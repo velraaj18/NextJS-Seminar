@@ -22,7 +22,7 @@ export default function ExpenseCalender() {
       <div className=" mb-2">
         <p className="text-xl text-gray-400">Calender</p>
       </div>
-      <div className="rounded-lg ml-5">
+      <div className="rounded-lg ml-3">
         <Calendar
           className="!border-0 text-sm !w-[300px] !bg-[#F8F8F8]"
           tileClassName={"rounded-full"}
