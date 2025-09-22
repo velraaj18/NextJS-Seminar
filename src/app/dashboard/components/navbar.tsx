@@ -12,8 +12,8 @@ type NavItem = {
 
 const navigation: NavItem[] = [
   { name: "Dashboard", href: "/dashboard", current: true },
-  { name: "Finance", href: "/team", current: false },
-  { name: "Events", href: "/projects", current: false },
+  { name: "Finance", href: "/finance", current: false },
+  { name: "Events", href: "/events", current: false },
   { name: "Calendar", href: "/calendar", current: false },
 ];
 

@@ -5,10 +5,10 @@ import "@/app/chartSetup";
 
 export default function PieChart() {
   const data = {
-    labels: ["Red", "Blue", "Yellow"],
+    labels: ["Salary", "Expenses", "Savings"],
     datasets: [
       {
-        label: "Votes",
+        label: "Jan",
         data: [300, 50, 100],
         backgroundColor: [
           "rgba(255, 99, 132, 0.5)",
@@ -19,5 +19,5 @@ export default function PieChart() {
     ],
   };
 
-  return <Pie data={data} />;
+  return <Pie data={data} className=" mt-2"/>;
 }
