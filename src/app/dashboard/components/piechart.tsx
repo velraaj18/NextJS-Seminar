@@ -11,13 +11,13 @@ export default function PieChart() {
         label: "Jan",
         data: [300, 50, 100],
         backgroundColor: [
-          "rgba(255, 99, 132, 0.5)",
-          "rgba(54, 162, 235, 0.5)",
-          "rgba(255, 206, 86, 0.5)",
+          "#ED3F27",
+          "#CBDCEB",
+          "#0046FF",
         ],
       },
     ],
   };
 
-  return <Pie data={data} className=" mt-2"/>;
+  return <Pie data={data} className=" mt-2 max-w-[300px] max-h-[300px] mx-auto"/>;
 }

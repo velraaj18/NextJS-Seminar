@@ -10,17 +10,17 @@ export default function BarChart() {
       {
         label: "Salary",
         data: [5000, 5200, 5100, 5300, 5400],
-        backgroundColor: "rgba(75, 192, 192, 0.7)", // teal
+        backgroundColor: "#ED3F27", // teal
       },
       {
         label: "Expenses",
         data: [3000, 2800, 2900, 3100, 3000],
-        backgroundColor: "rgba(255, 99, 132, 0.7)", // red
+        backgroundColor: "#CBDCEB", // red
       },
       {
         label: "Savings",
         data: [2000, 2400, 2200, 2200, 2400],
-        backgroundColor: "rgba(54, 162, 235, 0.7)", // blue
+        backgroundColor: "#0046FF", // blue
       },
     ],
   };
