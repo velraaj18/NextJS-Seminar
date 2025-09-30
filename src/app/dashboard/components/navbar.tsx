@@ -1,19 +1,31 @@
 "use client";
 
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 type NavItem = {
   name: string;
-  href: string;
+  href?: string;
   current: boolean;
 };
 
+interface NavBarProps {
+  onOpenAccounts: () => void;
+}
+
 const navigation: NavItem[] = [
   { name: "Dashboard", href: "/dashboard", current: true },
+  { name: "Accounts", current: false },
   { name: "Finance", href: "/finance", current: false },
-  { name: "Events", href: "/events", current: false },
   { name: "Calendar", href: "/calendar", current: false },
 ];
 
@@ -21,7 +33,7 @@ function classNames(...classes: (string | undefined | null | false)[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({onOpenAccounts} : NavBarProps) {
   return (
     <Disclosure
       as="nav"
@@ -41,23 +53,40 @@ export default function Navbar() {
                   />
                 </div>
                 <div className="hidden sm:flex sm:flex-1 sm:justify-end sm:items-center sm:ml-6">
-                <div className="flex space-x-8">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? "bg-gray-950/50 text-white" : "text-gray-500 hover:bg-white/5 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                  <div className="flex space-x-8">
+                    {navigation.map((item) =>
+                      item.name === "Accounts" ? (
+                        <button
+                          key={item.name}
+                          onClick={onOpenAccounts}
+                          className={classNames(
+                            item.current
+                              ? "bg-gray-950/50 text-white"
+                              : "text-gray-500 hover:bg-white/5 hover:text-white",
+                            "rounded-md px-3 py-2 text-sm font-medium"
+                          )}
+                        >
+                          {item.name}
+                        </button>
+                      ) : (
+                        <Link
+                          key={item.name}
+                          href={item.href!}
+                          className={classNames(
+                            item.current
+                              ? "bg-gray-950/50 text-white"
+                              : "text-gray-500 hover:bg-white/5 hover:text-white",
+                            "rounded-md px-3 py-2 text-sm font-medium"
+                          )}
+                          aria-current={item.current ? "page" : undefined}
+                        >
+                          {item.name}
+                        </Link>
+                      )
+                    )}
                   </div>
                 </div>
-              </div>             
+              </div>
             </div>
           </div>
         </>

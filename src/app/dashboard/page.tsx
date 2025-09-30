@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Navbar from "@/app/dashboard/components/navbar";
 import RightMenu from "@/app/dashboard/components/rightmenu";
@@ -16,15 +18,21 @@ import Category from "./components/category";
 import ExpenseCalender from "./components/calender";
 import BarChart from "./components/barchart";
 import PieChart from "./components/piechart";
+import { useState } from 'react';
+import AllAccounts from "../accounts/components/accountsModal";
+
 
 const Dashboard = () => {
+
+  const [isAccountsModalOpen, setIsAccountsModalOpen]  = useState(false);
+
   return (
     /* Outer layer - orange */
     <div className="bg-[#ffdac6] mx-4 lg:mx-[60px] my-2 lg:my-[10px] rounded-md min-h-screen p-4 lg:p-20">
       <div className="flex flex-row">
         {/* Left Main Content */}
         <div className="bg-[#EEEEEE] w-full lg:max-w-[1155px] rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none shadow-xl">
-          <Navbar />
+          <Navbar onOpenAccounts={() => setIsAccountsModalOpen(true)}/>
 
           {/* Wallet Header */}
           <div className="flex flex-1 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-5 gap-3">
@@ -112,6 +120,8 @@ const Dashboard = () => {
           <ExpenseCalender />
         </div>
       </div>
+
+      <AllAccounts isOpen={isAccountsModalOpen} onClose={ () => setIsAccountsModalOpen(false) } />
     </div>
   );
 };
